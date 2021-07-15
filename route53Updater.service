@@ -1,0 +1,15 @@
+# /etc/systemd/system/route53Updater.service
+
+[Unit]
+Description="Route53 RecordSets Updater"
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=no
+User=root
+WorkingDirectory=/var/scripts
+ExecStart=/var/scripts/route53Updater.sh
+
+[Install]
+WantedBy=multi-user.target
